@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (13.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := AdaFruit I2C Microphone Test
+BUILD_ARTIFACT_NAME := sound-pinpointer-webcam
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-AdaFruit\ I2C\ Microphone\ Test.elf \
+sound-pinpointer-webcam.elf \
 
 MAP_FILES += \
-AdaFruit\ I2C\ Microphone\ Test.map \
+sound-pinpointer-webcam.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-AdaFruit\ I2C\ Microphone\ Test.list \
+sound-pinpointer-webcam.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: AdaFruit\ I2C\ Microphone\ Test.elf secondary-outputs
+main-build: sound-pinpointer-webcam.elf secondary-outputs
 
 # Tool invocations
-AdaFruit\ I2C\ Microphone\ Test.elf AdaFruit\ I2C\ Microphone\ Test.map: $(OBJS) $(USER_OBJS) C:\Users\khoin\STM32CubeIDE\workspace_1.19.0\AdaFruit\ I2C\ Microphone\ Test\ (2)\AdaFruit\ I2C\ Microphone\ Test\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "AdaFruit I2C Microphone Test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\khoin\STM32CubeIDE\workspace_1.19.0\AdaFruit I2C Microphone Test (2)\AdaFruit I2C Microphone Test\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AdaFruit I2C Microphone Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+sound-pinpointer-webcam.elf sound-pinpointer-webcam.map: $(OBJS) $(USER_OBJS) D:\Documents\Coding\ Projects\CubeIDE\sound-pinpointer-webcam\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "sound-pinpointer-webcam.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Documents\Coding Projects\CubeIDE\sound-pinpointer-webcam\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="sound-pinpointer-webcam.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-AdaFruit\ I2C\ Microphone\ Test.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "AdaFruit I2C Microphone Test.list"
+sound-pinpointer-webcam.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "sound-pinpointer-webcam.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) AdaFruit\ I2C\ Microphone\ Test.elf AdaFruit\ I2C\ Microphone\ Test.list AdaFruit\ I2C\ Microphone\ Test.map AdaFruit\\ I2C\\ Microphone\\ Test.elf default.size.stdout
+	-$(RM) default.size.stdout sound-pinpointer-webcam.elf sound-pinpointer-webcam.list sound-pinpointer-webcam.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
