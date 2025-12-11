@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "microphone.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,8 +47,10 @@ DMA_HandleTypeDef hdma_spi3_rx;
 
 /* USER CODE BEGIN PV */
 
-uint16_t MICROPHONE_1[128];
-volatile uint16_t MICROPHONE_1_SAMPLE;
+volatile static microphone_t MICROPHONE_1[MICROPHONE_BUFFER_LENGTH];
+
+// Moving average of Microphone 1 values
+static microphone_t MICROPHONE_1_AVERAGE;
 
 /* USER CODE END PV */
 
@@ -63,9 +67,7 @@ static void MX_I2S3_Init(void);
 /* USER CODE BEGIN 0 */
 
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
-	MICROPHONE_1_SAMPLE = MICROPHONE_1[0];
-
-	// https://www.youtube.com/watch?v=NJXrJQPO7jk
+	MICROPHONE_1_AVERAGE =  normalize(average(MICROPHONE_1, MICROPHONE_BUFFER_LENGTH));
 }
 
 /* USER CODE END 0 */
@@ -103,7 +105,7 @@ int main(void)
   MX_I2S3_Init();
   /* USER CODE BEGIN 2 */
 
-	HAL_I2S_Receive_DMA(&hi2s3, MICROPHONE_1,
+	HAL_I2S_Receive_DMA(&hi2s3, (uint16_t*)MICROPHONE_1,
 			sizeof(MICROPHONE_1) / 2);
 
   /* USER CODE END 2 */
